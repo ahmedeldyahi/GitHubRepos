@@ -11,7 +11,13 @@ import SwiftUI
 struct GitHubReposApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RepositoryListView(
+                viewModel: RepositoryListViewModel(
+                    fetchUseCase: FetchRepositoriesUseCase(
+                        repository: GitHubRepository()
+                    )
+                )
+            )
         }
     }
 }
